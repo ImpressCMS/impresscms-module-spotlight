@@ -1,0 +1,76 @@
+"Spotlight" http://linux.kuht.it  - http://www.kuht.it spark@kuht.it
+
+Adaptation for XOOPS 2.0x by Herko (me at herkocoomans dot net) and dAWiLbY (willemsen1 at chello dot nl)
+
+--------------------------------------------------------------
+Dopo l'installazione del modulo vanno modificate le impostazioni del blocco "Spotlight - News"
+la disposizione consigliata è "Blocco centrale centro".
+Si ricorda inoltre di verificare e settare i permessi di accesso al modulo.
+
+Per informazioni, help, suggerimenti : spark@kuht.it
+--------------------------------------------------------------
+
+The Spotlight module can be used to 'spot' an article of special interest on your mainpage. It still is
+a block but as a central block it has the most value [even if Spotlight can be used as any normal block]
+The information in Italian is still there, in respect to the original author of Spotlight but for help,
+information and suggestions, please contact dAWiLbY (willemsen1 at chello dot nl)
+
+-------------------------------------------------------
+:: This is also the version which shows only newsitems.
+-------------------------------------------------------
+
+v1.2 First release for Xoops v2.0.
+
+v1.3 Bugfix release.
+ + admin completely in Xoops v2.0 style.
+ + added BB Codes
+ + Spotlight now shows a topic select box to jump directly to the selected topic articles [ suggestion by romu ]
+ - bug not displaying selected newsitem image.
+ - bug displaying comments link [even as anonymous user]
+ - bug not displaying hits in recent newslinks if selected in block admin.
+ - little bug in template not showing the othernews title.
+ - changed '...ORDER BY published DESC' in the db/sql so if a newsitem is edited, spotlight displays that newsitem.
+ - typo in mysql.sql
+ - bug displaying the html source.
+
+v1.3.1 Bugfix release.
+ + template refinement: added some space between text and image.
+ + image placement: if an image is displayed to the right in newsitem the it does the same in Spotlight.
+ - bug fixed always showing the first topic image.
+
+v1.4beta3 release
+ + let the users choose between news or WF-Sections as Spotlight news [Or both]
+ + admin for WF-Sections [not working]
+ + added setting for disabling the More News feature (ie. setting it to 'show no news items', will show no news items)
+ + change option 1 and 0 to yes/no for topic select box.
+ - bugfix in template not displaying the correct other articles.
+ - bugfix not showing the correct newsitems/wf-articles.
+
+:: Thanks to Techgnome for sending his nearly 90% finished Spotlight for WF-Section ::
+
+v1.4 release
+ + added hsalasar's code to display 'more newslinks' with a teaser text.
+ + added hsalasar's code also for WF-Sections.
+ + admin for WF-Sections.
+ - bugfix not showing the latest [changed] WF-Section article.
+
+:: Thanks to HSalasar for the "teaser" links.
+
+v1.4.1 release
+ + added hsalasar's code to display your spotlight[template] news or article in two columns or stacked.
+ + added hsalasar's code to display a ministats line with relevant stats from news/WF-Sections.
+
+:: Thanks to HSalasar for the template options and ministats feature.
+
+v1.4.2 release
+ + completed the admin side where its now possible to choose a side for the itemimage.
+
+todo:
+ * add Spotlight custom image with Imagemanager (so no more separate upload)
+ * control the total lenght of news/article item in characters.
+ * add block of html to design a more apealing Spotlight
+ * also use "items" from downloads/web links and other 'newsitem like' modules.
+ * add forum module/messages.
+ * in case of an auto item the choice of the itemcategory.
+ * abbillity to "Lock" an item with a certain expire date or period it should be displayed.
+ * need more suggestions.

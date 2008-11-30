@@ -1,0 +1,175 @@
+<div class="item" style="border: 0;">
+<{if $block.message != ""}>
+  <div style="text-align: center;">
+    <{$block.message}>
+  </div>
+<{else}>
+  <div>
+<{if $block.select_template != "1"}>
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+        <td>
+        <font color="#FF6600"><b><{$block.articletitle}></b></font>&nbsp;<{$block.lang_by}>
+          <a href="<{$xoops_url}>/userinfo.php?uid=<{$block.uid}>"><{$block.author}>
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+<{if $block.image != ""}>
+          <span style="float:<{$block.topicalign}>; background-color: transparent; margin-right: 10px; margin-top: 3px;">
+            <img src="<{$xoops_url}>/modules/spotlight/images/<{$block.image}>" alt="<{$block.articletitle}>" />
+          </span>
+<{elseif $block.image_display != ""}>
+          <span style="float:<{$block.topicalign}>; background-color: transparent; margin-right: 15px; margin-top: 3px;">
+            <img src="<{$xoops_url}>/modules/wfsection/images/category/<{$block.image_display}>" alt="<{$block.articletitle}>" />
+          </span>
+<{/if}>
+          <br><{$block.summary_wfsection}>
+        </td>
+      </tr>
+      <tr align="left">
+        <td style="line-height: 20px;" valign="top">
+          <a href="<{$xoops_url}>/modules/wfsection/article.php?articleid=<{$block.articleid}>">
+            <{$block.lang_read}>
+          </a>
+          <!-- Only registered users see comments -->
+<{if $xoops_userid != ""}>
+              &nbsp;|&nbsp;<{$block.lang_rating}>&nbsp;<{$block.rating}>&nbsp;|
+          <a href="<{$xoops_url}>/modules/wfsection/comment_new.php?com_itemid=<{$block.articleid}>">
+            <{$block.lang_write}>
+          </a>
+<{/if}>
+        </td>
+      </tr>
+      <!-- If webmaster selected to include other news -->
+<{if $block.lang_other_articles !=""}>
+      <tr>
+      </tr>
+        <td valign="top">
+          <h4 style="margin-top: 12px; margin-bottom: 3px;"><{$block.lang_other_articles}></h4>
+        </td>
+      <tr>
+      <td valign="top">
+    <ul>
+<{foreach item=wfss from=$block.articles}>
+      <li>
+        <a href="<{$xoops_url}>/modules/wfsection/article.php?articleid=<{$wfss.id}>"><{$wfss.title}></a>&nbsp;[<{$wfss.hitsordate}>]<{$wfsnews.graphic}>
+<{if $block.textview == 1}>
+          <br /><div style="margin-bottom: 6px;"><{$wfss.summary}></div>
+<{/if}>
+      </li>
+<{/foreach}>
+    </ul>
+      </td>
+    </tr>
+<{/if}>
+<{if $block.catsel != ""}>
+    <!-- Topics select form by R&B -->
+    <tr>
+      <td colspan="2" valign="top" style="padding: 0 0 6px 0;">
+        <{$block.catsel}>
+      </td>
+    </tr>
+<{/if}>
+<{if $block.lang_ministats != ""}>
+    <tr>
+      <td colspan="2" valign="top" align="center" style="background-color: #f0f0f0;">
+        <b><{$block.lang_ministats}>:&nbsp;</b><{$block.ministats}>
+      </td>
+    </tr>
+<{/if}>
+    <!-- table end -->
+  </table>
+<{else}>
+  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+      <td colspan="3">
+                <font color="#FF6600"><b><{$block.articletitle}></b></font>&nbsp;<{$block.lang_by}>
+          <a href="<{$xoops_url}>/userinfo.php?uid=<{$block.uid}>"><{$block.author}>
+        </a>
+      </td>
+    </tr>
+    <tr>
+<{if $block.lang_other_articles == ""}>
+      <td width="100%" valign="top">
+<{else}>
+      <td width="55%" valign="top">
+<{/if}>
+        <table width="100%" cellpadding="0" cellspacing="0">
+          <tr>
+            <td>
+<{if $block.image != ""}>
+              <span style="float:<{$block.topicalign}>; background-color: transparent; margin-right: 10px; margin-top: 3px;">
+                <img src="<{$xoops_url}>/modules/spotlight/images/<{$block.image}>" alt="<{$block.articletitle}>" />
+              </span>
+<{else}>
+              <span style="float:<{$block.topicalign}>; background-color: transparent; margin-right: 15px; margin-top: 3px;">
+                <img src="<{$xoops_url}>/modules/wfsection/images/category/<{$block.image_display}>" alt="<{$block.articletitle}>" />
+              </span>
+<{/if}>
+              <br><{$block.summary_wfsection}>
+            </td>
+          </tr>
+          <tr>
+            <td style="line-height: 20px;" valign="top">
+              <a href="<{$xoops_url}>/modules/wfsection/article.php?articleid=<{$block.articleid}>">
+                <{$block.lang_read}>
+              </a>
+              <!-- Only registered users see comments -->
+<{if $xoops_userid != ""}>
+              &nbsp;|&nbsp;<{$block.lang_rating}>&nbsp;<{$block.rating}>&nbsp;|
+              <a href="<{$xoops_url}>/modules/wfsection/comment_new.php?com_itemid=<{$block.articleid}>">
+                <{$block.lang_write}>
+              </a>
+<{/if}>
+            </td>
+          </tr>
+        </table>
+      </td>
+      <!-- If webmaster selected to include other news -->
+<{if $block.lang_other_articles !=""}>
+      <td width="20">&nbsp;</td>
+      <td width="62%" valign="top">
+        <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #efefef;">
+          <tr>
+            <td valign="top" style="padding: 6px;">
+              <h4 style="margin-top: 12px; margin-bottom: 3px;"><{$block.lang_other_articles}></h4>
+            </td>
+          </tr>
+          <tr>
+            <td valign="top" style="padding: 6px;">
+              <ul style="margin: 0px;">
+<{foreach item=wfss from=$block.articles}>
+                <li>
+                  <a href="<{$xoops_url}>/modules/wfsection/article.php?articleid=<{$wfss.id}>"><{$wfss.title}></a>&nbsp;[<{$wfss.hitsordate}>]<{$wfsnews.graphic}>
+<{if $block.textview == 1}>
+                  <br /><div style="margin-bottom: 6px;"><{$wfss.summary}></div>
+<{/if}>
+                </li>
+<{/foreach}>
+              </ul>
+            </td>
+          </tr>
+<{/if}>
+<{if $block.catsel != ""}>
+          <!-- Topics select form by R&B -->
+          <tr>
+            <td valign="top" align="center" style="padding: 0 0 6px 0;"><{$block.catsel}></td>
+          </tr>
+<{/if}>
+        </table>
+      </td>
+    </tr>
+<{if $block.lang_ministats != ""}>
+    <tr>
+      <td colspan="3" valign="top" align="center" style="background-color: #f0f0f0;">
+        <b><{$block.lang_ministats}>:&nbsp;</b><{$block.ministats}>
+      </td>
+    </tr>
+<{/if}>
+  </table>
+<{/if}>
+</div>
+<{/if}>
+</div>

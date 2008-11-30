@@ -1,0 +1,173 @@
+<div class="item" style="border: 0;">
+<{if $block.message != ""}>
+  <div style="text-align: center;">
+    <{$block.message}>
+  </div>
+<{else}>
+  <div>
+<{if $block.select_template != "1"}>
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+        <td>
+        <font color="#FF6600"><b><{$block.newstitle}></b></font>&nbsp;<{$block.lang_by}>
+          <a href="<{$xoops_url}>/userinfo.php?uid=<{$block.uid}>"><{$block.author}>
+          </a>
+         </td>
+      </tr>
+      <tr>
+        <td>
+<{if $block.image != ""}>
+          <span style="float:<{$block.topicalign}>; background-color: transparent; margin-right: 10px; margin-top: 3px;">
+            <img src="<{$xoops_url}>/modules/spotlight/images/<{$block.image}>" alt="<{$block.newstitle}>" />
+          </span>
+<{else}>
+          <span style="float:<{$block.topicalign}>;background-color: transparent; margin-right: 15px; margin-top: 3px;">
+            <img src="<{$xoops_url}>/modules/news/images/topics/<{$block.image_display}>" alt="<{$block.newstitle}>" />
+          </span>
+<{/if}>
+          <br><{$block.hometext_news}>
+        </td>
+      </tr>
+      <tr align="left">
+        <td style="line-height: 20px;" valign="top">
+          <a href="<{$xoops_url}>/modules/news/article.php?storyid=<{$block.storyid}>">
+            <{$block.lang_read}>
+          </a>
+          <!-- Only registered users see comments -->
+<{if $xoops_userid != ""}>
+          &nbsp;|&nbsp;<{$block.comments}>&nbsp;<{$block.lang_comments}>&nbsp;|
+          <a href="<{$xoops_url}>/modules/news/comment_new.php?com_itemid=<{$block.storyid}>">
+            <{$block.lang_write}>
+          </a>
+<{/if}>
+        </td>
+      </tr>
+      <!-- If webmaster selected to include other news -->
+<{if $block.lang_other_news !=""}>
+      <tr>
+      </tr>
+        <td valign="top">
+          <h4 style="margin-top: 12px; margin-bottom: 3px;"><{$block.lang_other_news}></h4>
+        </td>
+      <tr>
+      <td valign="top">
+        <ul>
+<{foreach item=news from=$block.stories}>
+          <li>
+            <a href="<{$xoops_url}>/modules/news/article.php?storyid=<{$news.id}>"><{$news.title}></a>&nbsp;[<{$news.hitsordate}>]<{$news.graphic}>
+<{if $block.textview == 1}>
+            <br /><div style="margin-bottom: 6px;"><{$news.hometext}></div>
+<{/if}>
+          </li>
+<{/foreach}>
+        </ul>
+      </td>
+    </tr>
+<{/if}>
+<{if $block.topicsel != ""}>
+    <!-- Topics select form by R&B -->
+    <tr>
+      <td colspan="2" valign="top" style="padding: 0 0 6px 0;">
+        <{$block.topicsel}>
+      </td>
+    </tr>
+<{/if}>
+<{if $block.lang_ministats != ""}>
+    <tr>
+      <td colspan="2" valign="top" align="center" style="background-color: #f0f0f0;">
+        <b><{$block.lang_ministats}>:&nbsp;</b><{$block.ministats}>
+      </td>
+    </tr>
+<{/if}>
+  <!-- table end -->
+  </table>
+<{else}>
+  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+      <td colspan="3">
+         <font color="#FF6600"><b><{$block.newstitle}></b></font>&nbsp;<{$block.lang_by}>
+          <a href="<{$xoops_url}>/userinfo.php?uid=<{$block.uid}>"><{$block.author}></a>      </td>
+    </tr>
+    <tr>
+<{if $block.lang_other_news == ""}>
+      <td width="100%" valign="top">
+<{else}>
+      <td width="55%" valign="top">
+<{/if}>
+        <table width="100%" cellpadding="0" cellspacing="0">
+          <tr>
+            <td>
+<{if $block.image != ""}>
+              <span style="float:<{$block.topicalign}>; background-color: transparent; margin-right: 10px; margin-top: 3px;">
+                <img src="<{$xoops_url}>/modules/spotlight/images/<{$block.image}>" alt="<{$block.newstitle}>" />
+              </span>
+<{else}>
+              <span style="float:<{$block.topicalign}>;background-color: transparent; margin-right: 15px; margin-top: 3px;">
+                <img src="<{$xoops_url}>/modules/news/images/topics/<{$block.image_display}>" alt="<{$block.newstitle}>" />
+              </span>
+<{/if}>
+              <br><{$block.hometext_news}>
+            </td>
+          </tr>
+          <tr>
+            <td style="line-height: 20px;" valign="top">
+              <a href="<{$xoops_url}>/modules/news/article.php?storyid=<{$block.storyid}>">
+                <{$block.lang_read}>
+              </a>
+              <!-- Only registered users see comments -->
+<{if $xoops_userid != ""}>
+              &nbsp;|&nbsp;<{$block.comments}>&nbsp;<{$block.lang_comments}>&nbsp;|
+              <a href="<{$xoops_url}>/modules/news/comment_new.php?com_itemid=<{$block.storyid}>">
+                <{$block.lang_write}>
+              </a>
+<{/if}>
+            </td>
+          </tr>
+        </table>
+      </td>
+      <!-- If webmaster selected to include other news -->
+<{if $block.lang_other_news !=""}>
+      <td width="20">&nbsp;</td>
+      <td width="62%" valign="top">
+        <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #efefef;">
+          <tr>
+            <td valign="top" style="padding: 6px;">
+              <h4 style="margin-bottom: 0px;"><{$block.lang_other_news}></h4>
+            </td>
+          </tr>
+          <tr>
+            <td valign="top" style="padding: 6px;">
+              <ul style="margin: 0px;">
+<{foreach item=news from=$block.stories}>
+                <li>
+                  <a href="<{$xoops_url}>/modules/news/article.php?storyid=<{$news.id}>"><{$news.title}></a>&nbsp;[<{$news.hitsordate}>]<{$news.graphic}>
+<{if $block.textview == 1}>
+                  <br /><div style="margin-bottom: 6px;"><{$news.hometext}></div>
+<{/if}>
+                </li>
+<{/foreach}>
+              </ul>
+            </td>
+          </tr>
+<{/if}>
+<{if $block.topicsel != ""}>
+          <!-- Topics select form by R&B -->
+          <tr>
+            <td valign="top" align="center" style="padding: 0 0 6px 0;"><{$block.topicsel}></td>
+          </tr>
+<{/if}>
+        </table>
+      </td>
+    </tr>
+<{if $block.lang_ministats != ""}>
+    <tr>
+      <td colspan="3" valign="top" align="center" style="background-color: #f0f0f0;">
+        <b><{$block.lang_ministats}>:&nbsp;</b><{$block.ministats}>
+      </td>
+    </tr>
+<{/if}>
+  </table>
+<{/if}>
+</div>
+<{/if}>
+</div>
